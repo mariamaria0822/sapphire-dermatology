@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sapphire Dermatology | Strategic Growth Portal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600&display=swap');
+
+  :root {
+    --navy: #1a1f3a;
+    --sapphire: #1e3a8a;
+    --sapphire-light: #2d52b8;
+    --sapphire-pale: #e8edf8;
+    --silver: #f8f9fb;
+    --white: #ffffff;
+    --text-primary: #0f1724;
+    --text-secondary: #4b5563;
+    --text-muted: #9ca3af;
+    --border: #e5e7eb;
+    --border-light: #f3f4f6;
+    --accent-green: #10b981;
+    --accent-amber: #f59e0b;
+    --accent-red: #ef4444;
+    --accent-blue: #3b82f6;
+    --sidebar-width: 240px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--silver);
+    color: var(--text-primary);
+    display: flex;
+    min-height: 100vh;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  /* SIDEBAR */
+  #sidebar {
+    width: var(--sidebar-width);
+    min-height: 100vh;
+    background: var(--navy);
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  .sidebar-logo {
+    padding: 24px 20px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .sidebar-logo .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.5px;
+  }
+
+  .sidebar-logo .sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 3px;
+  }
+
+  .nav-group {
+    padding: 20px 12px 4px;
+  }
+
+  .nav-group-label {
+    font-size: 9.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: rgba(255,255,255,0.3);
+    padding: 0 8px;
+    margin-bottom: 6px;
+  }
+
+  .nav-item {
+    display: block;
+    padding: 8px 10px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 12.5px;
+    border-radius: 5px;
+    margin-bottom: 1px;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-item:hover { color: #fff; background: rgba(255,255,255,0.08); }
+  .nav-item.active { color: #fff; background: var(--sapphire-light); }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 16px 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 10px;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* MAIN CONTENT */
+  #main {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    min-height: 100vh;
+  }
+
+  .page-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 36px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .page-title { font-size: 16px; font-weight: 600; color: var(--text-primary); }
+  .page-subtitle { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--sapphire-pale);
+    color: var(--sapphire);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .content {
+    padding: 32px 36px;
+    max-width: 1100px;
+  }
+
+  /* SECTION */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* CARDS */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+
+  .card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-title::before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 14px;
+    background: var(--sapphire);
+    border-radius: 2px;
+  }
+
+  .section-header {
+    margin-bottom: 24px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--sapphire);
+    margin-bottom: 6px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  .section-desc {
+    color: var(--text-secondary);
+    margin-top: 8px;
+    font-size: 13px;
+    max-width: 680px;
+  }
+
+  /* KPI CARDS */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .kpi-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+
+  .kpi-label {
+    font-size: 10.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .kpi-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .kpi-target {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 5px;
+  }
+
+  .kpi-target span {
+    color: var(--accent-green);
+    font-weight: 500;
+  }
+
+  .kpi-card.highlight {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+
+  .kpi-card.highlight .kpi-label { color: rgba(255,255,255,0.5); }
+  .kpi-card.highlight .kpi-value { color: #fff; }
+  .kpi-card.highlight .kpi-target { color: rgba(255,255,255,0.4); }
+  .kpi-card.highlight .kpi-target span { color: #34d399; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+
+  thead th {
+    background: var(--silver);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tbody td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-primary);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--silver); }
+
+  /* BADGES */
+  .badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 10.5px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .badge-high { background: #fee2e2; color: #991b1b; }
+  .badge-medium { background: #fef3c7; color: #92400e; }
+  .badge-low { background: #d1fae5; color: #065f46; }
+  .badge-critical { background: #1e3a8a; color: #fff; }
+  .badge-blue { background: var(--sapphire-pale); color: var(--sapphire); }
+  .badge-green { background: #d1fae5; color: #065f46; }
+  .badge-gray { background: var(--border-light); color: var(--text-secondary); }
+
+  /* PRIORITY GRID */
+  .priority-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+
+  .priority-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px;
+    background: var(--white);
+  }
+
+  .priority-num {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--sapphire-pale);
+    line-height: 1;
+    margin-bottom: 8px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .priority-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+  }
+
+  .priority-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* FUNNEL */
+  .funnel-stage {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+
+  .funnel-label {
+    width: 120px;
+    min-width: 120px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+  }
+
+  .funnel-bar-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .funnel-bar {
+    height: 36px;
+    border-radius: 4px;
+    background: var(--sapphire);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    transition: width 0.3s;
+  }
+
+  .funnel-bar-text {
+    font-size: 11px;
+    color: #fff;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .funnel-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 180px;
+  }
+
+  .funnel-leak {
+    display: inline-block;
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  /* ROADMAP MONTHS */
+  .month-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .month-badge {
+    background: var(--sapphire);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .month-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  /* MATRIX */
+  .matrix-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .matrix-cell {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+  }
+
+  .matrix-cell.q1 { background: #fef3c7; border-color: #fde68a; }
+  .matrix-cell.q2 { background: #d1fae5; border-color: #6ee7b7; }
+  .matrix-cell.q3 { background: #fee2e2; border-color: #fca5a5; }
+  .matrix-cell.q4 { background: var(--sapphire-pale); border-color: #bfdbfe; }
+
+  .matrix-cell-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+  }
+
+  .matrix-cell-item {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .matrix-cell-item::before { content: '→'; color: var(--text-muted); flex-shrink: 0; }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 24px 0;
+  }
+
+  /* TWO COL */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 22px 24px;
+    margin-bottom: 20px;
+  }
+
+  .highlight-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .highlight-box p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+  }
+
+  /* SCORECARD */
+  .score-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .score-label {
+    width: 160px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+  }
+
+  .score-track {
+    flex: 1;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .score-fill {
+    height: 100%;
+    background: var(--sapphire);
+    border-radius: 3px;
+  }
+
+  .score-val {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-primary);
+    width: 30px;
+    text-align: right;
+  }
+
+  /* WIREFRAME */
+  .wireframe-box {
+    border: 2px dashed var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 8px;
+    background: var(--silver);
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  .wireframe-header {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 4px;
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  .wireframe-hero {
+    background: linear-gradient(135deg, var(--sapphire) 0%, var(--sapphire-light) 100%);
+    border-radius: 4px;
+    padding: 24px 12px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .wireframe-row {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .wireframe-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  /* COLLAPSIBLE */
+  details summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border);
+    user-select: none;
+  }
+
+  details summary::after {
+    content: '+';
+    font-size: 16px;
+    color: var(--sapphire);
+  }
+
+  details[open] summary::after { content: '−'; }
+
+  details .details-body {
+    padding: 16px 0;
+  }
+
+  /* CHIP */
+  .chip {
+    display: inline-block;
+    background: var(--sapphire-pale);
+    color: var(--sapphire);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    margin: 2px;
+  }
+
+  /* RISK METER */
+  .risk-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    flex-shrink: 0;
+  }
+  .risk-high { background: #ef4444; }
+  .risk-medium { background: #f59e0b; }
+  .risk-low { background: #10b981; }
+
+  /* BOARD SUMMARY */
+  .board-box {
+    background: linear-gradient(135deg, #1a1f3a 0%, #1e3a8a 100%);
+    color: #fff;
+    border-radius: 10px;
+    padding: 32px 36px;
+  }
+
+  .board-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 14px;
+  }
+
+  .board-box p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .board-box ul {
+    list-style: none;
+    margin-top: 12px;
+  }
+
+  .board-box li {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    gap: 10px;
+  }
+
+  .board-box li span.n { color: rgba(255,255,255,0.35); }
+
+  /* PRINT */
+  @media print {
+    #sidebar { display: none; }
+    #main { margin-left: 0; }
+    .section { display: block !important; page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <div class="sidebar-logo">
+    <div class="brand">Sapphire Dermatology</div>
+    <div class="sub">Strategic Growth Portal</div>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Executive Overview</div>
+    <button class="nav-item active" onclick="show('exec-summary')">Executive Summary</button>
+    <button class="nav-item" onclick="show('roadmap')">90-Day Roadmap</button>
+    <button class="nav-item" onclick="show('kpi')">KPI Dashboard</button>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Growth Strategy</div>
+    <button class="nav-item" onclick="show('website')">Website Strategy</button>
+    <button class="nav-item" onclick="show('funnel')">Funnel Strategy</button>
+    <button class="nav-item" onclick="show('email')">Email Strategy</button>
+    <button class="nav-item" onclick="show('paid-ads')">Paid Ads Strategy</button>
+    <button class="nav-item" onclick="show('social-media')">Social Media Strategy</button>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Opportunities & Risks</div>
+    <button class="nav-item" onclick="show('opportunities')">Key Opportunities</button>
+    <button class="nav-item" onclick="show('risks')">Key Risks</button>
+    <button class="nav-item" onclick="show('recommendations')">Final Recommendations</button>
+  </div>
+
+  <div class="sidebar-footer">
+    Prepared by eComm Cartel · June 2026
+  </div>
+</nav>
+
+<!-- MAIN -->
+<div id="main">
+
+  <div class="page-header">
+    <div>
+      <div class="page-title" id="header-title">Executive Summary</div>
+      <div class="page-subtitle" id="header-sub">Strategic Growth Analysis · Sapphire Dermatology</div>
+    </div>
+    <div class="header-badge">
+      <span>●</span> Silver Spring, MD &amp; Reston, VA
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ===== EXEC SUMMARY ===== -->
+    <div class="section active" id="section-exec-summary">
+      <div class="section-header">
+        <div class="section-label">01 · Executive Overview</div>
+        <div class="section-title">Current State Assessment</div>
+        <div class="section-desc">Board-level diagnostic of Sapphire Dermatology's brand, digital infrastructure, and growth trajectory across two DMV locations.</div>
+      </div>
+
+      <!-- Current State -->
+      <div class="card">
+        <div class="card-title">Current State</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Status</th>
+              <th>Assessment</th>
+              <th>Priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Brand</strong></td>
+              <td><span class="badge badge-medium">Developing</span></td>
+              <td>Board-certified physicians (Dr. Kunal Angra, Dr. Divya Angra) provide credibility anchor. Brand identity is coherent but underutilized in digital channels. Doctor-led personality content is under-deployed.</td>
+              <td><span class="badge badge-blue">High</span></td>
+            </tr>
+            <tr>
+              <td><strong>Website</strong></td>
+              <td><span class="badge badge-medium">Functional</span></td>
+              <td>Built on Astro v4. Clean structure, two-location coverage. Booking CTA exists but conversion pathway is under-optimized. Service pages exist but lack SEO depth and trust signals per page.</td>
+              <td><span class="badge badge-high">Critical</span></td>
+            </tr>
+            <tr>
+              <td><strong>Lead Generation</strong></td>
+              <td><span class="badge badge-high">Gap</span></td>
+              <td>No documented paid media infrastructure. Social strategy approved (Doctor-Led Authority Brand model). Organic search likely drives majority of inbound—unverified. No lead capture mechanism beyond appointment booking.</td>
+              <td><span class="badge badge-high">Critical</span></td>
+            </tr>
+            <tr>
+              <td><strong>Patient Journey</strong></td>
+              <td><span class="badge badge-medium">Partial</span></td>
+              <td>Booking funnel terminates at schedule page. No visible consultation nurture path. No retargeting infrastructure confirmed. Show-rate optimization is unmeasured.</td>
+              <td><span class="badge badge-high">Critical</span></td>
+            </tr>
+            <tr>
+              <td><strong>Retention Systems</strong></td>
+              <td><span class="badge badge-high">Gap</span></td>
+              <td>ModMed EHR in use (patient portal exists). Reactivation email cadence, loyalty triggers, and review solicitation workflows are not confirmed active. High LTV potential unrealized.</td>
+              <td><span class="badge badge-high">Critical</span></td>
+            </tr>
+            <tr>
+              <td><strong>Marketing Infrastructure</strong></td>
+              <td><span class="badge badge-medium">Early Stage</span></td>
+              <td>Social strategy live. Email platform status unconfirmed. Analytics tracking unknown depth. No confirmed paid media attribution model. Two locations create opportunity for geo-segmented campaigns.</td>
+              <td><span class="badge badge-high">High</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Key Findings -->
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Top Strengths</div>
+          <table>
+            <tbody>
+              <tr><td><span class="badge badge-green">S1</span></td><td>Board-certified physicians with fellowship training — rare in the DMV market</td></tr>
+              <tr><td><span class="badge badge-green">S2</span></td><td>Dual-location presence (Silver Spring + Reston) creates geographic reach</td></tr>
+              <tr><td><span class="badge badge-green">S3</span></td><td>Skin of color expertise — high-demand, underserved niche in DMV market</td></tr>
+              <tr><td><span class="badge badge-green">S4</span></td><td>Full medical + cosmetic service stack enables cross-sell and high LTV</td></tr>
+              <tr><td><span class="badge badge-green">S5</span></td><td>Existing before/after content and verified patient testimonials (social proof assets)</td></tr>
+              <tr><td><span class="badge badge-green">S6</span></td><td>ModMed EHR enables patient data infrastructure for lifecycle marketing</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Top Weaknesses</div>
+          <table>
+            <tbody>
+              <tr><td><span class="badge badge-high">W1</span></td><td>No confirmed email marketing program — largest retention gap</td></tr>
+              <tr><td><span class="badge badge-high">W2</span></td><td>Website conversion pathway unoptimized; no mid-funnel capture</td></tr>
+              <tr><td><span class="badge badge-high">W3</span></td><td>Paid media infrastructure absent — zero scalable acquisition channel</td></tr>
+              <tr><td><span class="badge badge-medium">W4</span></td><td>Service pages lack individual SEO optimization and trust elements</td></tr>
+              <tr><td><span class="badge badge-medium">W5</span></td><td>Review solicitation workflow not formalized — Google ratings unmeasured</td></tr>
+              <tr><td><span class="badge badge-medium">W6</span></td><td>No documented show-rate or new patient KPI baselines</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Top Opportunities -->
+      <div class="card">
+        <div class="card-title">Top Opportunities</div>
+        <table>
+          <thead>
+            <tr><th>Opportunity</th><th>Category</th><th>Revenue Potential</th><th>Time to Impact</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Email lifecycle program activation (welcome → retention → reactivation)</td><td><span class="badge badge-blue">Retention</span></td><td>High</td><td>30–60 days</td></tr>
+            <tr><td>Google Ads launch for high-intent cosmetic search terms</td><td><span class="badge badge-blue">Acquisition</span></td><td>Very High</td><td>30 days</td></tr>
+            <tr><td>Skin of color positioning as DMV market differentiator</td><td><span class="badge badge-blue">Brand</span></td><td>High</td><td>60–90 days</td></tr>
+            <tr><td>Consultation → repeat purchase automation via ModMed + email</td><td><span class="badge badge-blue">LTV</span></td><td>High</td><td>45–60 days</td></tr>
+            <tr><td>Review solicitation post-treatment workflow</td><td><span class="badge badge-blue">Referral</span></td><td>Medium</td><td>14–21 days</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Strategic Priorities -->
+      <div class="section-header" style="margin-top:28px">
+        <div class="section-label">Strategic Priorities</div>
+        <div class="section-title" style="font-size:20px">Top 3 Initiatives — Next 90 Days</div>
+      </div>
+
+      <div class="priority-grid">
+        <div class="priority-card">
+          <div class="priority-num" style="color:#1e3a8a; opacity:0.3">01</div>
+          <div class="priority-title">Launch Google Ads for Cosmetic Search</div>
+          <div class="priority-desc">Botox, fillers, and microneedling searches in Silver Spring and Reston have high commercial intent with relatively low competition vs. major metros. A structured Google Ads account delivers measurable new patients within 30 days.</div>
+          <div style="margin-top:10px"><span class="chip">Acquisition</span><span class="chip">Month 1</span></div>
+        </div>
+        <div class="priority-card">
+          <div class="priority-num" style="color:#1e3a8a; opacity:0.3">02</div>
+          <div class="priority-title">Activate Email Lifecycle Infrastructure</div>
+          <div class="priority-desc">The highest-ROI move in dermatology is retaining and reactivating existing patients. A welcome sequence, consultation follow-up, and 6-month reactivation flow captures revenue already in the patient database at near-zero cost.</div>
+          <div style="margin-top:10px"><span class="chip">Retention</span><span class="chip">Month 1–2</span></div>
+        </div>
+        <div class="priority-card">
+          <div class="priority-num" style="color:#1e3a8a; opacity:0.3">03</div>
+          <div class="priority-title">Optimize Website Conversion Pathway</div>
+          <div class="priority-desc">Every paid and organic dollar drives traffic to sapphirederm.com. Fixing the homepage CTA hierarchy, adding service-page trust signals, and streamlining the booking flow directly amplifies the ROI of all other channels.</div>
+          <div style="margin-top:10px"><span class="chip">Conversion</span><span class="chip">Month 1–2</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ROADMAP ===== -->
+    <div class="section" id="section-roadmap">
+      <div class="section-header">
+        <div class="section-label">02 · Planning</div>
+        <div class="section-title">90-Day Growth Roadmap</div>
+        <div class="section-desc">Phased execution plan prioritizing quick wins in Month 1, infrastructure build in Month 2, and optimization in Month 3.</div>
+      </div>
+
+      <!-- Month Cards -->
+      <div class="card">
+        <div class="month-header">
+          <span class="month-badge">Month 1</span>
+          <span class="month-title">Foundation &amp; Launch</span>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Area</th><th>Objective</th><th>Deliverable</th><th>Success Metric</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Paid Ads</strong></td><td>Launch Google Ads for top cosmetic services</td><td>3 live campaigns (Botox, Fillers, Microneedling)</td><td>CPL &lt; $60; 10+ consultation bookings/month</td></tr>
+            <tr><td><strong>Email</strong></td><td>Email platform setup + welcome flow live</td><td>Welcome sequence (3 emails); list segmentation</td><td>Open rate &gt; 40%; 5% consultation booking rate</td></tr>
+            <tr><td><strong>Website</strong></td><td>Homepage CTA optimization + booking flow audit</td><td>Revised homepage CTA hierarchy; booking page UX fix</td><td>Conversion rate increase of 15%+</td></tr>
+            <tr><td><strong>Reviews</strong></td><td>Automate post-treatment review request</td><td>SMS/email review ask sequence via ModMed</td><td>+10 new Google reviews in 30 days</td></tr>
+            <tr><td><strong>Tracking</strong></td><td>Establish baseline KPIs</td><td>GA4 event tracking audit; conversion goals configured</td><td>All booking events tracked end-to-end</td></tr>
+            <tr><td><strong>Call Tracking</strong></td><td>Implement call tracking across both locations</td><td>CallRail (or equivalent) installed; dynamic number insertion on site + ads</td><td>100% of inbound calls attributed to channel source</td></tr>
+            <tr><td><strong>Website Chatbot</strong></td><td>Deploy AI chatbot for lead capture + FAQ handling</td><td>Chatbot live on homepage + service pages; connected to booking flow</td><td>Chatbot handles 20%+ of visitor inquiries; chat-to-booking rate &gt; 10%</td></tr>
+            <tr><td><strong>Payment UX</strong></td><td>Audit + improve website payment experience</td><td>Payment flow review; friction points documented; updated Pay Bill pathway</td><td>Reduced payment support inquiries; confirmed by client team</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="month-header">
+          <span class="month-badge">Month 2</span>
+          <span class="month-title">Infrastructure &amp; Scale</span>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Area</th><th>Objective</th><th>Deliverable</th><th>Success Metric</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Paid Ads</strong></td><td>Expand to Meta retargeting + 2 additional Google campaigns</td><td>Meta retargeting audience; Acne + Hair Loss Google campaigns</td><td>ROAS &gt; 4x; CPL trend down 10%</td></tr>
+            <tr><td><strong>Email</strong></td><td>Deploy consultation follow-up + reactivation flows</td><td>4-email post-consult sequence; 6-month reactivation flow</td><td>Reactivation rate &gt; 8% of lapsed patients</td></tr>
+            <tr><td><strong>Website</strong></td><td>Service page SEO upgrade for Botox, Fillers, Microneedling</td><td>3 optimized service pages with trust signals + schema markup</td><td>Page 1 local rankings for target keywords within 90 days</td></tr>
+            <tr><td><strong>Social</strong></td><td>Doctor-Led Authority content system live</td><td>Content calendar + micro-content workflow active</td><td>20% follower growth; 2x engagement rate</td></tr>
+            <tr><td><strong>Referral</strong></td><td>Launch referral program</td><td>Patient referral offer + email promotion sequence</td><td>5% of new patients attributed to referrals</td></tr>
+            <tr><td><strong>AI Skin Analysis</strong></td><td>Evaluate + scope AI skin analysis feature for website</td><td>Vendor shortlist (e.g. Haut.AI, SkinAI); technical requirements doc; integration plan</td><td>Vendor selected; build timeline confirmed</td></tr>
+            <tr><td><strong>Blog Program</strong></td><td>Launch content blog — first 4 posts published</td><td>4 SEO-optimized articles (acne, Botox, skin of color, skin cancer screening)</td><td>4 posts indexed; target keywords tracked in Search Console</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="month-header">
+          <span class="month-badge">Month 3</span>
+          <span class="month-title">Optimization &amp; LTV</span>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Area</th><th>Objective</th><th>Deliverable</th><th>Success Metric</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Paid Ads</strong></td><td>Full channel optimization; introduce before/after creative</td><td>A/B test results; creative refresh; budget reallocation</td><td>CPL &lt; $50; 20+ bookings/month from paid</td></tr>
+            <tr><td><strong>Email</strong></td><td>Launch birthday + cosmetic upsell campaigns</td><td>Birthday flow; seasonal campaign calendar Q3</td><td>Email revenue attribution measurable</td></tr>
+            <tr><td><strong>Website</strong></td><td>Launch PRP Hair + Skin Cancer SEO pages</td><td>2 additional optimized service pages</td><td>Organic sessions up 20% vs. baseline</td></tr>
+            <tr><td><strong>Analytics</strong></td><td>Full attribution model operational</td><td>Monthly KPI dashboard; channel attribution report</td><td>Full-funnel visibility from source to booked appt</td></tr>
+            <tr><td><strong>LTV</strong></td><td>Cosmetic upsell automation from medical visits</td><td>Post-medical visit cosmetic awareness email sequence</td><td>10% of medical patients book cosmetic consult</td></tr>
+            <tr><td><strong>AI Skin Analysis</strong></td><td>Launch AI skin analysis tool on website</td><td>Feature live on homepage or dedicated landing page; integrated with booking CTA</td><td>200+ skin analyses completed; 15%+ conversion to consultation booking</td></tr>
+            <tr><td><strong>Blog Program</strong></td><td>Scale to 8 total posts; promote via email + social</td><td>4 additional articles; blog promotion email; social repurposing plan</td><td>Organic blog traffic &gt; 500 sessions/month; 2 keywords ranking Page 1</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Weekly Plan -->
+      <div class="section-header" style="margin-top:28px; margin-bottom:16px">
+        <div class="section-label">Execution Detail</div>
+        <div class="section-title" style="font-size:18px">Week-by-Week Plan (Weeks 1–12)</div>
+      </div>
+
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Week</th>
+              <th>Initiative</th>
+              <th>Owner</th>
+              <th>Priority</th>
+              <th>Impact</th>
+              <th>Effort</th>
+              <th>Dependency</th>
+              <th>Success Metric</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>W1</td><td>GA4 tracking audit + conversion goals</td><td>eCC Dev</td><td><span class="badge badge-critical">Critical</span></td><td>High</td><td>Low</td><td>None</td><td>All booking events fire in GA4</td></tr>
+            <tr><td>W1</td><td>Google Ads account setup + campaign structure</td><td>eCC Paid</td><td><span class="badge badge-critical">Critical</span></td><td>High</td><td>Medium</td><td>GA4 tracking</td><td>Campaigns approved &amp; live</td></tr>
+            <tr><td>W1</td><td>Email platform audit / setup</td><td>eCC Email</td><td><span class="badge badge-high">High</span></td><td>High</td><td>Medium</td><td>ModMed export</td><td>Platform live; list imported</td></tr>
+            <tr><td>W2</td><td>Homepage CTA + booking flow revision</td><td>eCC Dev + Creative</td><td><span class="badge badge-high">High</span></td><td>High</td><td>Medium</td><td>None</td><td>Booking click-through rate +15%</td></tr>
+            <tr><td>W2</td><td>Welcome email sequence (3 emails) deployed</td><td>eCC Email</td><td><span class="badge badge-high">High</span></td><td>Medium</td><td>Medium</td><td>Email platform live</td><td>Open rate &gt; 40%</td></tr>
+            <tr><td>W2</td><td>Review request workflow (post-treatment SMS/email)</td><td>eCC + Client</td><td><span class="badge badge-high">High</span></td><td>Medium</td><td>Low</td><td>ModMed access</td><td>+10 Google reviews/month</td></tr>
+            <tr><td>W3</td><td>Google Ads: Botox + Fillers campaign live</td><td>eCC Paid</td><td><span class="badge badge-critical">Critical</span></td><td>High</td><td>Low</td><td>W1 setup</td><td>Impressions &gt; 2k; CTR &gt; 5%</td></tr>
+            <tr><td>W3</td><td>Social content calendar — first month live</td><td>eCC Social + Client</td><td><span class="badge badge-medium">Medium</span></td><td>Medium</td><td>Medium</td><td>Micro-content system</td><td>4+ posts live</td></tr>
+            <tr><td>W4</td><td>Botox service page SEO revision</td><td>eCC SEO</td><td><span class="badge badge-high">High</span></td><td>High</td><td>Medium</td><td>None</td><td>On-page score &gt; 85/100</td></tr>
+            <tr><td>W4</td><td>KPI baseline report (all channels)</td><td>eCC Analytics</td><td><span class="badge badge-high">High</span></td><td>High</td><td>Low</td><td>GA4 + Ads live</td><td>Dashboard delivered to client</td></tr>
+            <tr><td>W5</td><td>Google Ads: Microneedling + Acne campaigns</td><td>eCC Paid</td><td><span class="badge badge-high">High</span></td><td>High</td><td>Low</td><td>W3 live</td><td>Total bookings &gt; 15/month</td></tr>
+            <tr><td>W5</td><td>Consultation follow-up email flow (4 emails)</td><td>eCC Email</td><td><span class="badge badge-high">High</span></td><td>High</td><td>Medium</td><td>Email platform</td><td>Flow live; booking rate &gt; 5%</td></tr>
+            <tr><td>W6</td><td>Meta retargeting audience build + creative brief</td><td>eCC Paid + Creative</td><td><span class="badge badge-medium">Medium</span></td><td>High</td><td>Medium</td><td>Pixel installed</td><td>Audiences built; creative approved</td></tr>
+            <tr><td>W6</td><td>Fillers service page SEO revision</td><td>eCC SEO</td><td><span class="badge badge-medium">Medium</span></td><td>High</td><td>Medium</td><td>None</td><td>On-page score &gt; 85/100</td></tr>
+            <tr><td>W7</td><td>Meta retargeting campaigns live (website visitors)</td><td>eCC Paid</td><td><span class="badge badge-high">High</span></td><td>High</td><td>Medium</td><td>W6 audiences</td><td>CPM &lt; $15; CTR &gt; 1.5%</td></tr>
+            <tr><td>W7</td><td>6-month patient reactivation flow</td><td>eCC Email</td><td><span class="badge badge-high">High</span></td><td>High</td><td>Medium</td><td>Patient list segmentation</td><td>8% reactivation rate</td></tr>
+            <tr><td>W8</td><td>Referral program launch (email + in-office)</td><td>eCC + Client</td><td><span class="badge badge-medium">Medium</span></td><td>Medium</td><td>Low</td><td>Email platform</td><td>5+ referred patients in 30 days</td></tr>
+            <tr><td>W8</td><td>Mid-campaign paid ads optimization pass</td><td>eCC Paid</td><td><span class="badge badge-high">High</span></td><td>High</td><td>Low</td><td>W1–W7 data</td><td>CPL down 10% vs. W3 baseline</td></tr>
+            <tr><td>W9</td><td>PRP Hair Restoration service page SEO</td><td>eCC SEO</td><td><span class="badge badge-medium">Medium</span></td><td>High</td><td>Medium</td><td>None</td><td>On-page score &gt; 85/100</td></tr>
+            <tr><td>W9</td><td>Before/after creative for Meta ads</td><td>eCC Creative + Client</td><td><span class="badge badge-medium">Medium</span></td><td>High</td><td>Medium</td><td>Patient consents</td><td>2 creatives in A/B test</td></tr>
+            <tr><td>W10</td><td>Birthday email flow activation</td><td>eCC Email</td><td><span class="badge badge-medium">Medium</span></td><td>Medium</td><td>Low</td><td>DOB in patient data</td><td>Flow live; 15% open rate</td></tr>
+            <tr><td>W10</td><td>Organic social: 30-day performance review</td><td>eCC Social</td><td><span class="badge badge-medium">Medium</span></td><td>Medium</td><td>Low</td><td>None</td><td>Report delivered; strategy adjusted</td></tr>
+            <tr><td>W11</td><td>Full attribution model: source → booking report</td><td>eCC Analytics</td><td><span class="badge badge-high">High</span></td><td>High</td><td>Medium</td><td>GA4 + email + ads data</td><td>Attribution dashboard live</td></tr>
+            <tr><td>W12</td><td>Q3 campaign calendar + cosmetic upsell flows</td><td>eCC Email + Paid</td><td><span class="badge badge-medium">Medium</span></td><td>High</td><td>Medium</td><td>All systems live</td><td>Q3 plan approved by client</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== KPI ===== -->
+    <div class="section" id="section-kpi">
+      <div class="section-header">
+        <div class="section-label">03 · Performance</div>
+        <div class="section-title">KPI Dashboard</div>
+        <div class="section-desc">Target benchmarks for 90-day performance. Baselines to be established in Week 4 report. All targets are directional pending audit data.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Business KPIs</div>
+        <div class="kpi-grid">
+          <div class="kpi-card highlight">
+            <div class="kpi-label">New Patients / Month</div>
+            <div class="kpi-value">35+</div>
+            <div class="kpi-target">Target <span>↑ 40% by Day 90</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Cosmetic Revenue Share</div>
+            <div class="kpi-value">40%</div>
+            <div class="kpi-target">Target <span>↑ to 50%</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Consultation Show Rate</div>
+            <div class="kpi-value">75%</div>
+            <div class="kpi-target">Target <span>↑ to 85%</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Patient Lifetime Value</div>
+            <div class="kpi-value">$1,800</div>
+            <div class="kpi-target">Target <span>↑ $2,400 by Y1</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Returning Patient Rate</div>
+            <div class="kpi-value">—</div>
+            <div class="kpi-target">Baseline TBD <span>Target: 60%</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Consult Bookings / Month</div>
+            <div class="kpi-value">50+</div>
+            <div class="kpi-target">Across both locations</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Avg Revenue / Patient</div>
+            <div class="kpi-value">$450</div>
+            <div class="kpi-target">Target <span>↑ $600 via upsell</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Monthly Recurring Patients</div>
+            <div class="kpi-value">—</div>
+            <div class="kpi-target">Baseline TBD <span>Track from W4</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Website KPIs</div>
+          <table>
+            <thead><tr><th>Metric</th><th>Current</th><th>90-Day Target</th></tr></thead>
+            <tbody>
+              <tr><td>Monthly Sessions</td><td>TBD (audit)</td><td>+30% vs baseline</td></tr>
+              <tr><td>Booking Conversion Rate</td><td>TBD</td><td>&gt; 3.5%</td></tr>
+              <tr><td>Appointment Requests / Month</td><td>TBD</td><td>60+</td></tr>
+              <tr><td>Organic Traffic Share</td><td>TBD</td><td>&gt; 50% of sessions</td></tr>
+              <tr><td>Avg. Session Duration</td><td>TBD</td><td>&gt; 2:00 min</td></tr>
+              <tr><td>Bounce Rate</td><td>TBD</td><td>&lt; 55%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Email KPIs</div>
+          <table>
+            <thead><tr><th>Metric</th><th>Benchmark</th><th>Target</th></tr></thead>
+            <tbody>
+              <tr><td>List Growth Rate</td><td>—</td><td>+20% per month</td></tr>
+              <tr><td>Open Rate (all flows)</td><td>Med avg: 35%</td><td>&gt; 42%</td></tr>
+              <tr><td>Click Rate</td><td>Med avg: 4%</td><td>&gt; 6%</td></tr>
+              <tr><td>Booking Rate (from email)</td><td>—</td><td>&gt; 5%</td></tr>
+              <tr><td>Reactivation Rate</td><td>—</td><td>&gt; 8% of lapsed</td></tr>
+              <tr><td>Unsubscribe Rate</td><td>—</td><td>&lt; 0.3%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Paid Media KPIs</div>
+        <table>
+          <thead>
+            <tr><th>Channel</th><th>Metric</th><th>Benchmark</th><th>Target</th><th>Note</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Google Ads</td><td>CPL (Cost Per Lead)</td><td>Derm avg: $65–$90</td><td>&lt; $60</td><td>Consult booking</td></tr>
+            <tr><td>Google Ads</td><td>CTR</td><td>Med avg: 4–6%</td><td>&gt; 6%</td><td>Branded + service terms</td></tr>
+            <tr><td>Google Ads</td><td>CPA (booked patient)</td><td>Derm avg: $150–$250</td><td>&lt; $150</td><td>After show-rate adj.</td></tr>
+            <tr><td>Meta Ads</td><td>CPM</td><td>Med avg: $12–$18</td><td>&lt; $14</td><td>DMV market</td></tr>
+            <tr><td>Meta Ads</td><td>CTR (link)</td><td>0.8–1.2%</td><td>&gt; 1.5%</td><td>Before/after creative</td></tr>
+            <tr><td>Meta Ads</td><td>ROAS</td><td>Med avg: 3–5x</td><td>&gt; 4x</td><td>Cosmetic services</td></tr>
+            <tr><td>Combined</td><td>Paid Conversion Rate</td><td>—</td><td>&gt; 8%</td><td>Lead → booked consult</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== WEBSITE ===== -->
+    <div class="section" id="section-website">
+      <div class="section-header">
+        <div class="section-label">04 · Digital</div>
+        <div class="section-title">Website Strategy</div>
+        <div class="section-desc">Audit findings and optimization blueprint for sapphirederm.com — the central conversion asset for all marketing activity.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Website Audit</div>
+        <table>
+          <thead><tr><th>Area</th><th>Finding</th><th>Impact</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Messaging</strong></td><td>Generic headline — "Cosmetic, Medical, & Surgical Dermatologists." No differentiation from local competitors.</td><td><span class="badge badge-high">High</span></td><td>Rewrite hero headline to anchor on skin of color expertise + board certification</td></tr>
+            <tr><td><strong>Positioning</strong></td><td>Doctor personalities (Dr. Kunal Angra, Dr. Divya Angra) not featured above the fold. Trust signal buried.</td><td><span class="badge badge-high">High</span></td><td>Add physician photo + credentials to homepage hero</td></tr>
+            <tr><td><strong>Navigation</strong></td><td>"Pay Bill" and "Patient Portal" dominate nav. Cosmetic services buried in dropdown.</td><td><span class="badge badge-medium">Medium</span></td><td>Surface top 3 cosmetic services in primary nav; move portal links to utility bar</td></tr>
+            <tr><td><strong>Service Pages</strong></td><td>Pages exist for all services but lack SEO depth, schema markup, before/after photos, and single-page CTAs.</td><td><span class="badge badge-high">High</span></td><td>Rebuild 6 priority service pages per framework below</td></tr>
+            <tr><td><strong>Conversion Flow</strong></td><td>Booking page exists. No pre-booking qualification step or urgency mechanism.</td><td><span class="badge badge-high">High</span></td><td>Add inline booking widget or consultation request form on each service page</td></tr>
+            <tr><td><strong>Mobile UX</strong></td><td>Functional. CTA button above fold on mobile — positive. Load speed unknown.</td><td><span class="badge badge-medium">Medium</span></td><td>Speed test both locations' pages; compress images</td></tr>
+            <tr><td><strong>SEO</strong></td><td>Meta descriptions present. Schema markup status unknown. Internal linking sparse.</td><td><span class="badge badge-high">High</span></td><td>Add LocalBusiness + Physician schema; build internal link structure</td></tr>
+            <tr><td><strong>Trust Signals</strong></td><td>Testimonials page exists. No star ratings or review counts on homepage or service pages.</td><td><span class="badge badge-medium">Medium</span></td><td>Add Google review widget to homepage + service pages</td></tr>
+            <tr><td><strong>Booking Process</strong></td><td>Schedule link goes to separate page. Two phone numbers create location confusion.</td><td><span class="badge badge-medium">Medium</span></td><td>Add location selector step; reduce friction to 1-click booking per location</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Homepage Wireframe</div>
+          <div class="wireframe-header">NAV: Logo | Services | About | Book Appointment (CTA)</div>
+          <div class="wireframe-hero">HERO: Physician Photo + Headline + "Book Your Consultation" CTA<br><small style="opacity:0.7">Board-Certified Dermatology · Silver Spring & Reston, VA</small></div>
+          <div class="wireframe-row" style="grid-template-columns:1fr 1fr 1fr">
+            <div class="wireframe-block">Cosmetic Services</div>
+            <div class="wireframe-block">Medical Services</div>
+            <div class="wireframe-block">About Doctors</div>
+          </div>
+          <div class="wireframe-box">Before/After Gallery (Botox, Microneedling, PRP)</div>
+          <div class="wireframe-box">★★★★★ Google Reviews Widget (count + excerpt)</div>
+          <div class="wireframe-row" style="grid-template-columns:1fr 1fr">
+            <div class="wireframe-block">Silver Spring Location CTA</div>
+            <div class="wireframe-block">Reston Location CTA</div>
+          </div>
+          <div class="wireframe-box">Footer: Location maps + hours + phone + social</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">SEO Strategy</div>
+          <table>
+            <thead><tr><th>Category</th><th>Priority Targets</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Local SEO</strong></td>
+                <td>
+                  "Dermatologist Silver Spring MD"<br>
+                  "Dermatologist Reston VA"<br>
+                  "Skin doctor near me [DMV]"<br>
+                  Google Business Profile optimization both locations
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Service SEO</strong></td>
+                <td>
+                  "Botox Silver Spring MD"<br>
+                  "Microneedling Reston VA"<br>
+                  "PRP hair loss DMV"<br>
+                  "Acne treatment dermatologist MD"
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Content</strong></td>
+                <td>
+                  Monthly blog: skin of color, seasonal skincare, treatment FAQs<br>
+                  "Is Botox right for me?" guide<br>
+                  Skin cancer awareness seasonal content
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Internal Linking</strong></td>
+                <td>
+                  Homepage → Service pages → Blog → Booking<br>
+                  Medical → Cosmetic cross-link strategy<br>
+                  Location pages with NAP schema
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Service Page Framework</div>
+        <table>
+          <thead>
+            <tr><th>Service</th><th>Goal</th><th>Key Structure</th><th>CTA Strategy</th><th>Trust Elements</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Botox</strong></td><td>Book consult</td><td>What/Why/How/Who/Cost + FAQ</td><td>"Book Botox Consult" above fold + inline form</td><td>Before/after, Dr. Angra credentials, review quotes</td></tr>
+            <tr><td><strong>Fillers</strong></td><td>Book consult</td><td>Areas treated, longevity table, technique differentiation</td><td>"Request Filler Consult" + phone number</td><td>Before/after gallery, FDA-approved products listed</td></tr>
+            <tr><td><strong>PRP Hair</strong></td><td>Educate + book</td><td>Mechanism, candidate criteria, treatment schedule, results timeline</td><td>2-step: "Am I a Candidate?" → Book</td><td>Clinical citations, treatment photos, testimonials</td></tr>
+            <tr><td><strong>Microneedling</strong></td><td>Book SkinPen session</td><td>What SkinPen treats, sessions needed, downtime, vs alternatives</td><td>"Book Microneedling" + "Compare treatments"</td><td>Before/after, SkinPen brand trust badge, Dr. Angra quote</td></tr>
+            <tr><td><strong>Acne Treatment</strong></td><td>First appointment</td><td>Acne types, treatment ladder, prescription capability</td><td>"Book Acne Consultation" + telehealth option</td><td>Patient success stories, board-cert callout</td></tr>
+            <tr><td><strong>Skin Cancer Screening</strong></td><td>Annual visit + urgency</td><td>Who needs it, what to expect, why derm over GP</td><td>"Schedule Annual Skin Check" — urgency copy</td><td>Statistics on early detection, physician credentials</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== FUNNEL ===== -->
+    <div class="section" id="section-funnel">
+      <div class="section-header">
+        <div class="section-label">05 · Patient Journey</div>
+        <div class="section-title">Funnel Strategy</div>
+        <div class="section-desc">End-to-end patient acquisition and retention map from first touchpoint to referral generation.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Full Patient Funnel</div>
+        <div style="padding: 8px 0 16px">
+          <div class="funnel-stage">
+            <div class="funnel-label">Awareness</div>
+            <div class="funnel-bar-wrap">
+              <div class="funnel-bar" style="width:100%; background:#1e3a8a"><span class="funnel-bar-text">Google Search · Social · Referral · GBP</span></div>
+              <div class="funnel-meta">100% — Top of funnel</div>
+            </div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-label">Consideration</div>
+            <div class="funnel-bar-wrap">
+              <div class="funnel-bar" style="width:65%; background:#2d52b8"><span class="funnel-bar-text">Website · Reviews · Social proof</span></div>
+              <div class="funnel-meta"><span class="funnel-leak">−35% drop</span> Website friction</div>
+            </div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-label">Consultation</div>
+            <div class="funnel-bar-wrap">
+              <div class="funnel-bar" style="width:40%; background:#3b6fd4"><span class="funnel-bar-text">Booking form · Phone · Chat</span></div>
+              <div class="funnel-meta"><span class="funnel-leak">−25% drop</span> CTA/UX gap</div>
+            </div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-label">Show Rate</div>
+            <div class="funnel-bar-wrap">
+              <div class="funnel-bar" style="width:30%; background:#4a83e8"><span class="funnel-bar-text">Confirmation · Reminder · Nurture</span></div>
+              <div class="funnel-meta"><span class="funnel-leak">−10% drop</span> No-show gap</div>
+            </div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-label">Treatment</div>
+            <div class="funnel-bar-wrap">
+              <div class="funnel-bar" style="width:28%; background:#6b9ef5"><span class="funnel-bar-text">In-office experience</span></div>
+              <div class="funnel-meta">Strong clinical experience</div>
+            </div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-label">Follow Up</div>
+            <div class="funnel-bar-wrap">
+              <div class="funnel-bar" style="width:18%; background:#8ab3f7"><span class="funnel-bar-text">Email · SMS · Review request</span></div>
+              <div class="funnel-meta"><span class="funnel-leak">−10% drop</span> No system</div>
+            </div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-label">Repeat</div>
+            <div class="funnel-bar-wrap">
+              <div class="funnel-bar" style="width:12%; background:#a8c4f9"><span class="funnel-bar-text">Reactivation · Seasonal · Upsell</span></div>
+              <div class="funnel-meta"><span class="funnel-leak">Largest leak</span> No program</div>
+            </div>
+          </div>
+          <div class="funnel-stage">
+            <div class="funnel-label">Referral</div>
+            <div class="funnel-bar-wrap">
+              <div class="funnel-bar" style="width:6%; background:#c5d9fb"><span class="funnel-bar-text">Word of mouth · Program</span></div>
+              <div class="funnel-meta">Unmeasured, high potential</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Funnel Stage Detail</div>
+        <table>
+          <thead>
+            <tr><th>Stage</th><th>Objective</th><th>Channel</th><th>Message</th><th>KPI</th><th>Conversion Goal</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Awareness</strong></td><td>Generate relevant reach</td><td>Google Ads, SEO, Instagram, GBP</td><td>"DMV's board-certified dermatologists for cosmetic &amp; medical skin care"</td><td>Impressions, reach, GBP views</td><td>5% click to website</td></tr>
+            <tr><td><strong>Consideration</strong></td><td>Build trust &amp; preference</td><td>Website, reviews, Instagram Reels</td><td>Before/after results, physician credentials, skin of color expertise</td><td>Session duration, service page views</td><td>3.5% conversion to booking</td></tr>
+            <tr><td><strong>Consultation</strong></td><td>Secure appointment</td><td>Online booking, phone, retargeting</td><td>"Book your consultation — same week availability"</td><td>Consult bookings, phone calls</td><td>50+ bookings/month</td></tr>
+            <tr><td><strong>Treatment</strong></td><td>Deliver excellent experience</td><td>In-office</td><td>Premium clinical environment, personalized treatment plan</td><td>Show rate, NPS</td><td>85%+ show rate</td></tr>
+            <tr><td><strong>Follow Up</strong></td><td>Reinforce results &amp; request review</td><td>Email, SMS</td><td>"Here's what to expect from your treatment + share your experience"</td><td>Review rate, open rate</td><td>20% leave review</td></tr>
+            <tr><td><strong>Repeat Purchase</strong></td><td>Drive return visit</td><td>Email, SMS</td><td>Treatment reminder, seasonal promotion, cosmetic upsell</td><td>Retention rate, appts/patient/year</td><td>60% return within 6 months</td></tr>
+            <tr><td><strong>Referral</strong></td><td>Activate word of mouth</td><td>Email, in-office</td><td>"Refer a friend — give $25 credit, receive $25 credit"</td><td>Referral rate, referred patients</td><td>5% of active patients refer 1+</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Top Funnel Leaks &amp; Fixes</div>
+        <table>
+          <thead><tr><th>Leak</th><th>Estimated Loss</th><th>Root Cause</th><th>Fix</th><th>Effort</th></tr></thead>
+          <tbody>
+            <tr><td>Awareness → Consideration</td><td>35% of traffic</td><td>Homepage messaging fails to differentiate; no above-fold trust signal</td><td>Hero rewrite + physician photo + review count</td><td><span class="badge badge-low">Low</span></td></tr>
+            <tr><td>Consideration → Booking</td><td>25% of intent traffic</td><td>No inline booking option on service pages; single CTA pathway</td><td>Add consultation request form to each service page</td><td><span class="badge badge-low">Low</span></td></tr>
+            <tr><td>Booked → Show</td><td>~15% no-show rate</td><td>No automated reminder sequence; no pre-visit value communication</td><td>2-step reminder (48hr + 2hr) via SMS + email</td><td><span class="badge badge-low">Low</span></td></tr>
+            <tr><td>Treatment → Repeat</td><td>40%+ lapse rate</td><td>No post-treatment email program; patients not prompted to rebook</td><td>Post-treatment email sequence + reactivation flow</td><td><span class="badge badge-medium">Medium</span></td></tr>
+            <tr><td>Satisfied → Referral</td><td>Unmeasured</td><td>No referral program; no formal ask mechanism</td><td>Referral program email + in-office signage</td><td><span class="badge badge-low">Low</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== EMAIL ===== -->
+    <div class="section" id="section-email">
+      <div class="section-header">
+        <div class="section-label">06 · Retention</div>
+        <div class="section-title">Email Strategy</div>
+        <div class="section-desc">Full lifecycle email architecture for patient acquisition, retention, and revenue growth.</div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Segmentation Framework</div>
+          <table>
+            <thead><tr><th>Segment</th><th>Definition</th><th>Key Message</th></tr></thead>
+            <tbody>
+              <tr><td>New Lead</td><td>Submitted form, no appointment booked</td><td>Social proof + urgency to book</td></tr>
+              <tr><td>New Patient</td><td>First appointment completed</td><td>Welcome + upsell cosmetic services</td></tr>
+              <tr><td>Cosmetic Patient</td><td>Has received Botox/fillers/cosmetic tx</td><td>Maintenance reminders, seasonal promotions</td></tr>
+              <tr><td>Medical Patient</td><td>Medical visits only (acne, skin check)</td><td>Cosmetic awareness + trust-building content</td></tr>
+              <tr><td>Lapsed (6+ mo)</td><td>No visit in 6+ months</td><td>Reactivation offer + "We miss you"</td></tr>
+              <tr><td>Reston Location</td><td>Reston VA patients</td><td>Location-specific promos, Reston specials</td></tr>
+              <tr><td>Silver Spring</td><td>Silver Spring MD patients</td><td>Location-specific promos, MD specials</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Campaign Calendar (Annual)</div>
+          <table>
+            <thead><tr><th>Month</th><th>Campaign</th><th>Offer Type</th></tr></thead>
+            <tbody>
+              <tr><td>Jan</td><td>New Year, New Skin</td><td>Botox promo + skin check reminder</td></tr>
+              <tr><td>Feb</td><td>Valentine's Day</td><td>Filler + skin glow duo offer</td></tr>
+              <tr><td>Apr</td><td>Spring Skin Refresh</td><td>Microneedling + chemical peel</td></tr>
+              <tr><td>May</td><td>Skin Cancer Awareness Month</td><td>Educational + skin check CTA</td></tr>
+              <tr><td>Jun</td><td>Summer Prep</td><td>Sun damage + SPF education</td></tr>
+              <tr><td>Sep</td><td>Fall Reactivation</td><td>Returning patient offer</td></tr>
+              <tr><td>Oct</td><td>Hair Loss Awareness</td><td>PRP consultation push</td></tr>
+              <tr><td>Nov</td><td>Holiday Glow</td><td>Botox + filler seasonal offer</td></tr>
+              <tr><td>Dec</td><td>Year-End Self-Care</td><td>Gift card + referral push</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Automation Flows</div>
+        <table>
+          <thead>
+            <tr><th>Flow</th><th>Trigger</th><th>Goal</th><th>Sequence</th><th>CTA</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Welcome</strong></td>
+              <td>New patient record created</td>
+              <td>Orient + upsell cosmetic services</td>
+              <td>Email 1 (Day 0): Welcome + doctor intro<br>Email 2 (Day 3): Top services overview<br>Email 3 (Day 7): Before/after gallery + book CTA</td>
+              <td>Book cosmetic consult</td>
+            </tr>
+            <tr>
+              <td><strong>Consultation Follow-Up</strong></td>
+              <td>Consultation completed</td>
+              <td>Convert consult → treatment booking</td>
+              <td>Email 1 (Day 1): Thank you + treatment summary<br>Email 2 (Day 4): Address common hesitations<br>Email 3 (Day 10): Social proof + urgency<br>Email 4 (Day 21): Final offer</td>
+              <td>Book your treatment</td>
+            </tr>
+            <tr>
+              <td><strong>Treatment Follow-Up</strong></td>
+              <td>Treatment completed</td>
+              <td>Reinforce results, request review, prompt rebook</td>
+              <td>Email 1 (Day 2): Post-care instructions<br>Email 2 (Day 14): Results check-in + review ask<br>Email 3 (Day 45): Maintenance reminder</td>
+              <td>Leave a review / Book follow-up</td>
+            </tr>
+            <tr>
+              <td><strong>Reactivation</strong></td>
+              <td>No visit in 6 months</td>
+              <td>Re-engage lapsed patients</td>
+              <td>Email 1: "We miss you" + what's new<br>Email 2 (+7 days): Exclusive returning patient offer<br>Email 3 (+14 days): Final reminder + expiry</td>
+              <td>Claim your offer / Book now</td>
+            </tr>
+            <tr>
+              <td><strong>Review Request</strong></td>
+              <td>14 days post-treatment</td>
+              <td>Build Google review volume</td>
+              <td>Single email: Personalized ask, direct Google link</td>
+              <td>Leave a Google review</td>
+            </tr>
+            <tr>
+              <td><strong>Referral</strong></td>
+              <td>After positive review or 30 days post-treatment</td>
+              <td>Generate referred patients</td>
+              <td>Email 1: Referral offer introduction<br>Email 2 (+14 days): Reminder with testimonial</td>
+              <td>Refer a friend</td>
+            </tr>
+            <tr>
+              <td><strong>Birthday</strong></td>
+              <td>Patient birth month</td>
+              <td>Drive visit with personalized offer</td>
+              <td>Email 1 (5 days before month): Birthday offer<br>Email 2 (last week): Offer expiry reminder</td>
+              <td>Claim your birthday treat</td>
+            </tr>
+            <tr>
+              <td><strong>Medical → Cosmetic</strong></td>
+              <td>Medical visit completed, no cosmetic history</td>
+              <td>Cross-sell cosmetic services</td>
+              <td>Email 1 (+7 days): Educational intro to cosmetic options<br>Email 2 (+21 days): Before/after proof + offer</td>
+              <td>Book a cosmetic consult</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== PAID ADS ===== -->
+    <div class="section" id="section-paid-ads">
+      <div class="section-header">
+        <div class="section-label">07 · Acquisition</div>
+        <div class="section-title">Paid Ads Strategy</div>
+        <div class="section-desc">Google Search and Meta campaign architecture for scalable new patient acquisition across both Sapphire locations.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Google Ads — Campaign Structure</div>
+        <table>
+          <thead>
+            <tr><th>Campaign</th><th>Target Audience</th><th>Priority Keywords</th><th>Landing Page</th><th>Budget Alloc.</th><th>CPL Target</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Botox</strong></td>
+              <td>Women 28–55, Silver Spring + Reston + 15mi</td>
+              <td>botox silver spring md, botox injections near me, botox dermatologist</td>
+              <td>/service/injectables/ (optimized)</td>
+              <td>30%</td>
+              <td>&lt; $55</td>
+            </tr>
+            <tr>
+              <td><strong>Fillers</strong></td>
+              <td>Women 30–60, DMV metro</td>
+              <td>lip filler reston va, dermal fillers md, juvederm near me</td>
+              <td>/service/injectables/ (fillers tab)</td>
+              <td>20%</td>
+              <td>&lt; $55</td>
+            </tr>
+            <tr>
+              <td><strong>PRP Hair</strong></td>
+              <td>Men + Women 28–55, hair loss concern</td>
+              <td>prp hair loss treatment dmv, prp hair restoration silver spring</td>
+              <td>/service/prp-hair-loss/</td>
+              <td>15%</td>
+              <td>&lt; $70</td>
+            </tr>
+            <tr>
+              <td><strong>Acne Treatment</strong></td>
+              <td>Ages 18–35, DMV area</td>
+              <td>acne dermatologist near me, cystic acne treatment md, hormonal acne doctor</td>
+              <td>/service/acne/</td>
+              <td>15%</td>
+              <td>&lt; $50</td>
+            </tr>
+            <tr>
+              <td><strong>Skin Cancer Screening</strong></td>
+              <td>Ages 35+, high sun exposure history</td>
+              <td>skin cancer screening silver spring, annual skin check dermatologist</td>
+              <td>/service/annual-skin-checks/</td>
+              <td>10%</td>
+              <td>&lt; $45</td>
+            </tr>
+            <tr>
+              <td><strong>Derm Near Me (Branded)</strong></td>
+              <td>All demographics, DMV geo</td>
+              <td>sapphire dermatology, dermatologist silver spring, dermatologist reston</td>
+              <td>Homepage</td>
+              <td>10%</td>
+              <td>&lt; $35</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Meta Ads — Campaign Structure</div>
+        <table>
+          <thead>
+            <tr><th>Campaign</th><th>Audience</th><th>Offer / Hook</th><th>Creative Angle</th><th>Funnel Stage</th><th>KPI Target</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Awareness — Brand</strong></td>
+              <td>Women 25–55, DMV, interests: skincare, wellness, beauty</td>
+              <td>Meet Sapphire's board-certified dermatologists</td>
+              <td>Doctor intro Reel — Dr. Angra on skin of color expertise</td>
+              <td>Top of funnel</td>
+              <td>CPM &lt; $14; 3-sec video view &gt; 40%</td>
+            </tr>
+            <tr>
+              <td><strong>Consultation — Cosmetic</strong></td>
+              <td>Women 30–55 who engaged with awareness content</td>
+              <td>Book a Botox or Filler consult — same week availability</td>
+              <td>Before/after result + physician trust statement</td>
+              <td>Mid funnel</td>
+              <td>CTR &gt; 1.5%; CPL &lt; $60</td>
+            </tr>
+            <tr>
+              <td><strong>Retargeting — Website Visitors</strong></td>
+              <td>Website visitors (last 30 days) who didn't book</td>
+              <td>Limited-time new patient special</td>
+              <td>Social proof Reel + offer overlay</td>
+              <td>Bottom of funnel</td>
+              <td>ROAS &gt; 5x; CPL &lt; $40</td>
+            </tr>
+            <tr>
+              <td><strong>Testimonial Campaign</strong></td>
+              <td>Lookalike audience based on booked patients</td>
+              <td>Real patient results from Sapphire</td>
+              <td>Patient testimonial video — in-office capture</td>
+              <td>Consideration</td>
+              <td>CTR &gt; 1.8%; CPL &lt; $55</td>
+            </tr>
+            <tr>
+              <td><strong>Before &amp; After</strong></td>
+              <td>Women 28–50 interested in cosmetic procedures</td>
+              <td>"See what Botox/Microneedling looks like — real Sapphire patients"</td>
+              <td>Split-screen before/after with treatment label</td>
+              <td>Consideration</td>
+              <td>Engagement rate &gt; 4%; CPL &lt; $50</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Budget Allocation Framework (Monthly)</div>
+        <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr)">
+          <div class="kpi-card">
+            <div class="kpi-label">Google Search</div>
+            <div class="kpi-value">60%</div>
+            <div class="kpi-target">High-intent capture <span>Start here</span></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Meta Ads</div>
+            <div class="kpi-value">30%</div>
+            <div class="kpi-target">Retargeting + awareness <span>Month 2+</span></div>
+          </div>
+          <div class="kpi-card highlight">
+            <div class="kpi-label">Minimum Monthly Budget</div>
+            <div class="kpi-value">$3,000</div>
+            <div class="kpi-target">Recommended for data <span>$5k+ for scale</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SOCIAL MEDIA ===== -->
+    <div class="section" id="section-social-media">
+      <div class="section-header">
+        <div class="section-label">07B · Approved Strategy</div>
+        <div class="section-title">Social Media Strategy</div>
+        <div class="section-desc">The social media strategy has been approved. This section summarizes the approved framework for reference. Execution details are owned by the eCC social team.</div>
+      </div>
+
+      <div class="highlight-box">
+        <h3>Approved Model: "Doctor-Led Authority Brand"</h3>
+        <p>Staff and dermatologists create the raw content. eCC handles ideas, editing, and posting. Primary platform: Instagram. Goal: make Sapphire recognizable, approachable, and authoritative in the DMV market. This is the higher-growth, more authentic strategy — optimized for long-term brand equity and local dominance.</p>
+      </div>
+
+      <!-- Strategic Position -->
+      <div class="card">
+        <div class="card-title">Strategic Position</div>
+        <table>
+          <thead><tr><th>Pillar</th><th>Detail</th><th>Why It Works</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>People follow people, not clinics</strong></td>
+              <td>Dr. Kunal Angra and Dr. Divya Angra are the face of the brand. Their credentials, specialties, and personalities are the content anchor.</td>
+              <td>Derm accounts that win on Instagram lean heavily on recognizable doctor personalities and approachable education.</td>
+            </tr>
+            <tr>
+              <td><strong>Differentiation assets</strong></td>
+              <td>Cosmetic expertise · Skin of color experience · Medical + cosmetic dual capability · Local DMV roots · Fellowship training</td>
+              <td>These are genuine competitive advantages that competitors cannot replicate through content alone.</td>
+            </tr>
+            <tr>
+              <td><strong>Content mix</strong></td>
+              <td>40% Educational · 30% Before &amp; After · 20% Testimonials · 10% Promotional</td>
+              <td>Weighted toward trust-building over selling — appropriate for a medical authority brand.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 6 Content Buckets -->
+      <div class="section-header" style="margin-top:24px; margin-bottom:14px">
+        <div class="section-label">Content System</div>
+        <div class="section-title" style="font-size:18px">6 Content Buckets</div>
+      </div>
+
+      <div class="three-col">
+        <div class="priority-card">
+          <div class="priority-num" style="color:#1e3a8a; opacity:0.25">01</div>
+          <div class="priority-title">Doctor/Staff Personality</div>
+          <div class="priority-desc">Make the physicians the face of the brand. Content types: "Derm Myth or Fact," "What I'd never do to my skin," "3 things causing your acne," POV consult-style videos, reaction videos to skincare trends, "Patient asked me…" series.</div>
+          <div style="margin-top:10px"><span class="chip">Dr-created</span><span class="chip">Reels</span></div>
+        </div>
+        <div class="priority-card">
+          <div class="priority-num" style="color:#1e3a8a; opacity:0.25">02</div>
+          <div class="priority-title">Daily Micro-Content</div>
+          <div class="priority-desc">One staff member becomes "content coordinator." Capture 5–10 vertical clips/day: injectables prep, laser room setup, provider consults, front desk interactions, product shelves, device close-ups, "Day in the life" clips. Upload to shared folder → agency edits into Reels.</div>
+          <div style="margin-top:10px"><span class="chip">Staff-captured</span><span class="chip">Volume</span></div>
+        </div>
+        <div class="priority-card">
+          <div class="priority-num" style="color:#1e3a8a; opacity:0.25">03</div>
+          <div class="priority-title">Patient Question Reels</div>
+          <div class="priority-desc">Every consult becomes content research. Turn real patient questions into educational Reels. Categories: Acne · Melasma · Botox myths · Hair loss · Rosacea · SPF education · Skin of color concerns. Positions Sapphire as trustworthy, educational, premium but approachable.</div>
+          <div style="margin-top:10px"><span class="chip">Educational</span><span class="chip">SEO value</span></div>
+        </div>
+        <div class="priority-card">
+          <div class="priority-num" style="color:#1e3a8a; opacity:0.25">04</div>
+          <div class="priority-title">Agency-Produced Educational</div>
+          <div class="priority-desc">High-volume content produced entirely by eCC. Uses: animated skincare explainers, motion graphics, AI-assisted voiceovers, trending-style edits, infographic carousels. Examples: "Botox timeline," "What causes melasma?," "Top anti-aging treatments by age." No MD time required.</div>
+          <div style="margin-top:10px"><span class="chip">Agency-led</span><span class="chip">No MD time</span></div>
+        </div>
+        <div class="priority-card">
+          <div class="priority-num" style="color:#1e3a8a; opacity:0.25">05</div>
+          <div class="priority-title">Before &amp; After Assets</div>
+          <div class="priority-desc">Transformation Reels, swipe carousels, split-screen progress videos, testimonial overlays, treatment journey content. Backbone of conversion content. Requires standardized patient consent process. All historical B&amp;As usable — agency works with any age of content.</div>
+          <div style="margin-top:10px"><span class="chip">Conversion</span><span class="chip">Consent required</span></div>
+        </div>
+        <div class="priority-card">
+          <div class="priority-num" style="color:#1e3a8a; opacity:0.25">06</div>
+          <div class="priority-title">Conversion-Focused Content</div>
+          <div class="priority-desc">Strong CTA strategy woven into all content: "Book your consult," "DM us SKIN," "Save this for later," "Send this to a friend." Prioritizes: consultation bookings · treatment awareness · credibility · social proof · in-office promotions · new procedures.</div>
+          <div style="margin-top:10px"><span class="chip">CTA-driven</span><span class="chip">Revenue link</span></div>
+        </div>
+      </div>
+
+      <!-- CTA Strategy -->
+      <div class="card" style="margin-top:20px">
+        <div class="card-title">CTA Strategy</div>
+        <table>
+          <thead><tr><th>CTA</th><th>Use Case</th><th>Funnel Stage</th></tr></thead>
+          <tbody>
+            <tr><td><strong>"Book your consult"</strong></td><td>Botox, fillers, PRP, microneedling Reels</td><td>Bottom of funnel</td></tr>
+            <tr><td><strong>"DM us SKIN"</strong></td><td>Any treatment educational content</td><td>Mid funnel — conversation starter</td></tr>
+            <tr><td><strong>"Save this for later"</strong></td><td>Educational content, skincare tips</td><td>Awareness — algorithm boost</td></tr>
+            <tr><td><strong>"Send this to a friend"</strong></td><td>Myth-busting, relatable skin content</td><td>Awareness — referral signal</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Operations -->
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Operational Workflow</div>
+          <table>
+            <thead><tr><th>Role</th><th>Responsibility</th></tr></thead>
+            <tbody>
+              <tr><td><strong>eCC Social Team</strong></td><td>Content ideas, editing, scheduling, posting, analytics</td></tr>
+              <tr><td><strong>Staff Content Coordinator</strong></td><td>Capture 5–10 clips/day vertically; upload to shared folder daily</td></tr>
+              <tr><td><strong>Dr. Kunal Angra / Dr. Divya Angra</strong></td><td>30 min/week: on-camera content (Bucket 1 &amp; 3). Approve topics.</td></tr>
+              <tr><td><strong>Patient Consent</strong></td><td>Standardized consent form required for all before/after and identifiable patient content</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Social KPIs (90-Day Targets)</div>
+          <table>
+            <thead><tr><th>Metric</th><th>Target</th></tr></thead>
+            <tbody>
+              <tr><td>Follower Growth</td><td>+20% vs. baseline</td></tr>
+              <tr><td>Engagement Rate</td><td>2× current rate</td></tr>
+              <tr><td>Reels per Week</td><td>3–5 Reels minimum</td></tr>
+              <tr><td>DM Conversations</td><td>Track weekly; target 10+/week</td></tr>
+              <tr><td>Profile Visits → Website Clicks</td><td>Measure bio link CTR monthly</td></tr>
+              <tr><td>Story Views (avg)</td><td>Baseline + 25% by Day 90</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Integration with other channels -->
+      <div class="card">
+        <div class="card-title">Integration with Other Channels</div>
+        <table>
+          <thead><tr><th>Channel</th><th>Social Media Connection</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Paid Ads (Meta)</strong></td><td>High-performing organic Reels are boosted as paid ads. Before/after content from Bucket 5 feeds Meta ad creative library.</td></tr>
+            <tr><td><strong>Email</strong></td><td>Instagram followers captured via bio link → email list. Monthly campaign promotions teased on social first.</td></tr>
+            <tr><td><strong>Website</strong></td><td>Instagram feed embedded on homepage as live social proof. "Follow us" CTA on thank-you/confirmation pages.</td></tr>
+            <tr><td><strong>Referral</strong></td><td>"Send this to a friend" CTA on patient testimonial content drives organic referral awareness.</td></tr>
+            <tr><td><strong>SEO</strong></td><td>Educational Reels repurposed as blog content. Keyword-aligned captions improve Instagram search discoverability.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- ===== OPPORTUNITIES ===== -->
+    <div class="section" id="section-opportunities">
+      <div class="section-header">
+        <div class="section-label">08 · Growth</div>
+        <div class="section-title">Key Opportunities</div>
+        <div class="section-desc">Ranked opportunity matrix across revenue, strategic impact, and implementation complexity.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Opportunity Scorecard — Top 10</div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Opportunity</th>
+              <th>Revenue Impact</th>
+              <th>Strategic Impact</th>
+              <th>Ease</th>
+              <th>Priority Score</th>
+              <th>Recommendation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1</strong></td>
+              <td>Google Ads — Cosmetic Search (Botox, Fillers)</td>
+              <td><span class="badge badge-critical">Very High</span></td>
+              <td>High</td>
+              <td><span class="badge badge-green">Easy</span></td>
+              <td>9.5 / 10</td>
+              <td>Launch in Month 1 — highest immediate ROI lever</td>
+            </tr>
+            <tr>
+              <td><strong>2</strong></td>
+              <td>Email Lifecycle Program (Welcome + Reactivation)</td>
+              <td><span class="badge badge-critical">Very High</span></td>
+              <td>High</td>
+              <td><span class="badge badge-green">Easy</span></td>
+              <td>9.2 / 10</td>
+              <td>Near-zero cost to activate; highest LTV leverage</td>
+            </tr>
+            <tr>
+              <td><strong>3</strong></td>
+              <td>Website Conversion Optimization (homepage + service pages)</td>
+              <td><span class="badge badge-high">High</span></td>
+              <td>High</td>
+              <td><span class="badge badge-green">Easy</span></td>
+              <td>9.0 / 10</td>
+              <td>Amplifies every other channel — do first</td>
+            </tr>
+            <tr>
+              <td><strong>4</strong></td>
+              <td>Skin of Color Market Positioning (DMV niche domination)</td>
+              <td><span class="badge badge-high">High</span></td>
+              <td><strong>Very High</strong></td>
+              <td><span class="badge badge-medium">Medium</span></td>
+              <td>8.8 / 10</td>
+              <td>Unique differentiator; underdeveloped in DMV</td>
+            </tr>
+            <tr>
+              <td><strong>5</strong></td>
+              <td>Review Solicitation Automation</td>
+              <td><span class="badge badge-medium">Medium</span></td>
+              <td>High</td>
+              <td><span class="badge badge-green">Easy</span></td>
+              <td>8.5 / 10</td>
+              <td>Reviews directly impact Google Ads QS and local SEO</td>
+            </tr>
+            <tr>
+              <td><strong>6</strong></td>
+              <td>Medical → Cosmetic Cross-Sell Email Automation</td>
+              <td><span class="badge badge-high">High</span></td>
+              <td>Medium</td>
+              <td><span class="badge badge-green">Easy</span></td>
+              <td>8.2 / 10</td>
+              <td>Large existing medical patient base is untapped cosmetic revenue</td>
+            </tr>
+            <tr>
+              <td><strong>7</strong></td>
+              <td>Local SEO — Service + Location Pages</td>
+              <td><span class="badge badge-high">High</span></td>
+              <td>High</td>
+              <td><span class="badge badge-medium">Medium</span></td>
+              <td>8.0 / 10</td>
+              <td>Long-term acquisition at zero CPL</td>
+            </tr>
+            <tr>
+              <td><strong>8</strong></td>
+              <td>Meta Retargeting — Website Visitor Audiences</td>
+              <td><span class="badge badge-medium">Medium</span></td>
+              <td>Medium</td>
+              <td><span class="badge badge-green">Easy</span></td>
+              <td>7.8 / 10</td>
+              <td>Recaptures high-intent visitors who didn't book</td>
+            </tr>
+            <tr>
+              <td><strong>9</strong></td>
+              <td>Referral Program (Patient → Patient)</td>
+              <td><span class="badge badge-medium">Medium</span></td>
+              <td>High</td>
+              <td><span class="badge badge-medium">Medium</span></td>
+              <td>7.5 / 10</td>
+              <td>Lowest CPA channel; builds community around practice</td>
+            </tr>
+            <tr>
+              <td><strong>10</strong></td>
+              <td>Reston Location-Specific Campaign (new location acceleration)</td>
+              <td><span class="badge badge-high">High</span></td>
+              <td>High</td>
+              <td><span class="badge badge-medium">Medium</span></td>
+              <td>7.3 / 10</td>
+              <td>New location needs dedicated awareness push to reach local search share</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section-header" style="margin-top:24px; margin-bottom:14px">
+        <div class="section-label">Impact vs Effort Matrix</div>
+      </div>
+
+      <div class="card">
+        <div class="matrix-2x2">
+          <div class="matrix-cell q2">
+            <div class="matrix-cell-title" style="color:#065f46">🚀 Do First (High Impact, Low Effort)</div>
+            <div class="matrix-cell-item">Google Ads launch — Botox + Fillers</div>
+            <div class="matrix-cell-item">Welcome email sequence</div>
+            <div class="matrix-cell-item">Review solicitation automation</div>
+            <div class="matrix-cell-item">Homepage CTA revision</div>
+            <div class="matrix-cell-item">Medical → Cosmetic email flow</div>
+          </div>
+          <div class="matrix-cell q4">
+            <div class="matrix-cell-title" style="color:#1e40af">📋 Plan Carefully (High Impact, High Effort)</div>
+            <div class="matrix-cell-item">Skin of color brand positioning</div>
+            <div class="matrix-cell-item">Full local SEO overhaul</div>
+            <div class="matrix-cell-item">Service page rebuild (6 pages)</div>
+            <div class="matrix-cell-item">Reston location campaign</div>
+          </div>
+          <div class="matrix-cell q1">
+            <div class="matrix-cell-title" style="color:#92400e">⚡ Quick Wins (Low Impact, Low Effort)</div>
+            <div class="matrix-cell-item">Birthday email flow</div>
+            <div class="matrix-cell-item">GBP photo update</div>
+            <div class="matrix-cell-item">Nav restructure</div>
+          </div>
+          <div class="matrix-cell q3">
+            <div class="matrix-cell-title" style="color:#991b1b">⚠ Defer (Low Impact, High Effort)</div>
+            <div class="matrix-cell-item">Full website rebuild</div>
+            <div class="matrix-cell-item">Video production studio</div>
+            <div class="matrix-cell-item">Podcast / long-form content</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== RISKS ===== -->
+    <div class="section" id="section-risks">
+      <div class="section-header">
+        <div class="section-label">09 · Risk Management</div>
+        <div class="section-title">Key Risks</div>
+        <div class="section-desc">Risk identification and mitigation across marketing, operations, compliance, and advertising.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Risk Matrix</div>
+        <table>
+          <thead>
+            <tr><th>Risk</th><th>Category</th><th>Impact</th><th>Likelihood</th><th>Mitigation Plan</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>No attribution baseline</strong> — decisions made without data</td>
+              <td><span class="badge badge-blue">Tracking</span></td>
+              <td><span class="badge badge-high">High</span></td>
+              <td><span class="risk-dot risk-high"></span>High</td>
+              <td>GA4 audit + conversion tracking in Week 1 is non-negotiable. Do not launch paid ads without tracking.</td>
+            </tr>
+            <tr>
+              <td><strong>Paid ads without website conversion fix</strong> — budget wasted on poor UX</td>
+              <td><span class="badge badge-blue">Marketing</span></td>
+              <td><span class="badge badge-high">High</span></td>
+              <td><span class="risk-dot risk-high"></span>High</td>
+              <td>Minimum: fix homepage CTA + add inline booking form before first dollar of paid spend.</td>
+            </tr>
+            <tr>
+              <td><strong>Before/after content without written patient consent</strong></td>
+              <td><span class="badge badge-blue">Compliance</span></td>
+              <td><span class="badge badge-high">High</span></td>
+              <td><span class="risk-dot risk-medium"></span>Medium</td>
+              <td>Implement standardized consent form for all social and marketing use. Audit existing content library.</td>
+            </tr>
+            <tr>
+              <td><strong>Meta ad policy violations</strong> — health/medical claims</td>
+              <td><span class="badge badge-blue">Advertising</span></td>
+              <td><span class="badge badge-high">High</span></td>
+              <td><span class="risk-dot risk-medium"></span>Medium</td>
+              <td>All ad copy reviewed against Meta health advertising policies. Avoid before/after in ad creative per policy. Use landing page for before/after.</td>
+            </tr>
+            <tr>
+              <td><strong>Doctor time constraints</strong> — content system collapses if MD participation drops</td>
+              <td><span class="badge badge-blue">Operations</span></td>
+              <td><span class="badge badge-medium">Medium</span></td>
+              <td><span class="risk-dot risk-high"></span>High</td>
+              <td>Build agency-produced content (Bucket 4) as fallback. Require only 30 min/week of MD content time. Designate staff content coordinator.</td>
+            </tr>
+            <tr>
+              <td><strong>Show-rate degradation from paid traffic</strong> — leads don't show</td>
+              <td><span class="badge badge-blue">Operations</span></td>
+              <td><span class="badge badge-medium">Medium</span></td>
+              <td><span class="risk-dot risk-medium"></span>Medium</td>
+              <td>Automated 48hr + 2hr reminder sequence. Pre-consultation educational email to increase commitment. Track show rate by channel.</td>
+            </tr>
+            <tr>
+              <td><strong>Negative reviews</strong> — rapid review volume growth exposes risk</td>
+              <td><span class="badge badge-blue">Marketing</span></td>
+              <td><span class="badge badge-medium">Medium</span></td>
+              <td><span class="risk-dot risk-low"></span>Low</td>
+              <td>Review request triggered only for satisfied patients. Monitor review platforms weekly. Respond to all reviews within 48 hours.</td>
+            </tr>
+            <tr>
+              <td><strong>HIPAA compliance in email marketing</strong></td>
+              <td><span class="badge badge-blue">Compliance</span></td>
+              <td><span class="badge badge-high">High</span></td>
+              <td><span class="risk-dot risk-low"></span>Low</td>
+              <td>Use HIPAA-compliant email platform (e.g. Klaviyo Business Associate Agreement, Mailchimp HIPAA). No PHI in marketing emails. Legal review of patient communication templates.</td>
+            </tr>
+            <tr>
+              <td><strong>Reston location underperformance</strong> — new location slow to build search presence</td>
+              <td><span class="badge badge-blue">Marketing</span></td>
+              <td><span class="badge badge-medium">Medium</span></td>
+              <td><span class="risk-dot risk-medium"></span>Medium</td>
+              <td>Dedicated Google Ads + GBP for Reston location from Day 1. Separate keyword targeting for "Reston VA dermatologist." Location-specific landing page.</td>
+            </tr>
+            <tr>
+              <td><strong>Staff turnover disrupts content system</strong></td>
+              <td><span class="badge badge-blue">Operations</span></td>
+              <td><span class="badge badge-low">Low</span></td>
+              <td><span class="risk-dot risk-low"></span>Low</td>
+              <td>Document content SOP. Agency-produced content (Bucket 4) is staff-independent. Cross-train two staff on content coordinator role.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== RECOMMENDATIONS ===== -->
+    <div class="section" id="section-recommendations">
+      <div class="section-header">
+        <div class="section-label">10 · Decisions</div>
+        <div class="section-title">Final Recommendations</div>
+        <div class="section-desc">Prioritized strategic guidance for Sapphire's owners and leadership team.</div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Top 5 Priorities</div>
+          <table>
+            <tbody>
+              <tr>
+                <td width="30"><strong>P1</strong></td>
+                <td>
+                  <strong>Launch Google Ads (Month 1)</strong><br>
+                  <small style="color:var(--text-muted)">Why: Only scalable acquisition channel. Every week without it is new patients going to competitors.<br>Expected impact: 15–25 new patients/month within 60 days.<br>Risk: Wasted spend if tracking not in place. Fix tracking first.<br>Alternative considered: Organic SEO only — 6–12 month lag unacceptable.</small>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>P2</strong></td>
+                <td>
+                  <strong>Email Lifecycle Activation (Month 1–2)</strong><br>
+                  <small style="color:var(--text-muted)">Why: Highest ROI per dollar; monetizes existing patient base. Reactivating 10% of lapsed patients at $450 avg is material revenue.<br>Expected impact: 15–20% increase in returning patient visits.<br>Risk: HIPAA compliance in platform selection.<br>Alternative: SMS only — incomplete, misses older demographic.</small>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>P3</strong></td>
+                <td>
+                  <strong>Website CTA + Service Page Optimization</strong><br>
+                  <small style="color:var(--text-muted)">Why: Every channel funnels to the website. A 1% conversion rate improvement at 1,000 monthly visitors = 10 additional bookings.<br>Expected impact: 15–25% lift in booking conversion rate.<br>Risk: Low — copywriting change, not rebuild.<br>Alternative: New website — defer; 90-day horizon too short.</small>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>P4</strong></td>
+                <td>
+                  <strong>Review Solicitation Automation</strong><br>
+                  <small style="color:var(--text-muted)">Why: Reviews directly affect Google Ads Quality Score, local SEO ranking, and new patient trust. 10 new reviews/month compounds rapidly.<br>Expected impact: 15–30 new Google reviews in 90 days.<br>Risk: Negative review exposure — mitigated by selective triggering.<br>Alternative: Manual ask — inconsistent, not scalable.</small>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>P5</strong></td>
+                <td>
+                  <strong>GA4 + Conversion Tracking (Week 1)</strong><br>
+                  <small style="color:var(--text-muted)">Why: All optimization decisions are blind without data. Must precede paid ads launch.<br>Expected impact: Enables full-funnel attribution; identifies highest-performing channels.<br>Risk: Minimal. Low effort, foundational.<br>Alternative: None — this is required infrastructure.</small>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Top 5 Quick Wins (0–14 Days)</div>
+          <table>
+            <tbody>
+              <tr><td><strong>QW1</strong></td><td>Update Google Business Profiles (both locations) with accurate hours, photos, services, and booking link</td></tr>
+              <tr><td><strong>QW2</strong></td><td>Add physician photos and credentials to homepage above fold — no code required if CMS accessible</td></tr>
+              <tr><td><strong>QW3</strong></td><td>Set up post-treatment review request email/SMS — one template, auto-sent Day 14 post-visit</td></tr>
+              <tr><td><strong>QW4</strong></td><td>Add "Book Consultation" CTA button inline on Botox and Fillers service pages</td></tr>
+              <tr><td><strong>QW5</strong></td><td>Install Meta Pixel on site — required for retargeting, starts building audiences even before campaigns launch</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Top 5 Revenue Opportunities</div>
+          <table>
+            <tbody>
+              <tr><td><strong>R1</strong></td><td><strong>Medical → Cosmetic Cross-Sell:</strong> Email sequence to all medical-only patients introducing Botox and fillers. High likelihood of 10–15% conversion in first campaign.</td></tr>
+              <tr><td><strong>R2</strong></td><td><strong>Cosmetic Service Upsell at Consultation:</strong> Train front desk + providers on offering complementary services (e.g., microneedling + Botox consultation). Documented protocol increases avg ticket.</td></tr>
+              <tr><td><strong>R3</strong></td><td><strong>Seasonal Campaign Revenue:</strong> Valentine's Day + Summer Prep + Holiday Glow promotions historically drive 20–40% lift in cosmetic bookings during campaign windows.</td></tr>
+              <tr><td><strong>R4</strong></td><td><strong>Referral Program:</strong> Lowest CPA acquisition channel. Referred patients have 25% higher LTV on average (Bain benchmark for healthcare). $25/$25 credit program standard.</td></tr>
+              <tr><td><strong>R5</strong></td><td><strong>PRP Hair Restoration:</strong> High ticket ($600–$1,200/session, 3–6 sessions recommended), underadvertised by local competitors. Dedicated Google Ads + content can establish Sapphire as the DMV authority.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Top 5 Long-Term Investments</div>
+          <table>
+            <tbody>
+              <tr><td><strong>LT1</strong></td><td><strong>Doctor-Led Authority Brand (Instagram):</strong> 12–18 months of consistent doctor personality content builds local brand recognition and referral flywheel that cannot be bought with ads.</td></tr>
+              <tr><td><strong>LT2</strong></td><td><strong>SEO Domination — Local + Service:</strong> Building topical authority in dermatology keywords for both locations creates compounding organic traffic that reduces paid dependency over 18–24 months.</td></tr>
+              <tr><td><strong>LT3</strong></td><td><strong>Patient LTV Optimization System:</strong> Full email + SMS lifecycle automation across all patient segments. Goal: increase average visits/patient/year from ~1.5 to 2.5.</td></tr>
+              <tr><td><strong>LT4</strong></td><td><strong>Skin of Color Brand Leadership:</strong> Publish DMV-specific content on skin of color conditions (melasma, hyperpigmentation, keloids). Become the recognized specialist — commanding premium and capturing underserved demand.</td></tr>
+              <tr><td><strong>LT5</strong></td><td><strong>Third Location Expansion Infrastructure:</strong> The systems built in 90 days (paid ads, email, CRM, analytics) create the playbook for a third Sapphire location launch with significantly lower marketing ramp-up time.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">What NOT to Focus On in the First 90 Days</div>
+        <table>
+          <thead><tr><th>What to Defer</th><th>Why</th><th>When to Revisit</th></tr></thead>
+          <tbody>
+            <tr><td>Full website rebuild</td><td>Optimization delivers 80% of the value in 20% of the time. A rebuild takes 2–3 months and removes focus from channels that drive revenue now.</td><td>Month 4–6 if conversion data justifies it</td></tr>
+            <tr><td>TikTok presence</td><td>Social strategy is already approved (Instagram-first). TikTok requires separate content engine and separate algorithm mastery. Dilutes effort.</td><td>Month 6+ after Instagram is operationalized</td></tr>
+            <tr><td>Podcast / long-form content</td><td>Content ROI for a local dermatology practice comes from short-form social and search, not long-form audio. Effort-to-impact ratio is poor in Year 1.</td><td>Year 2 if authority brand goals expand</td></tr>
+            <tr><td>In-house creative studio</td><td>Agency-produced and staff micro-content covers content needs. Building in-house infrastructure in Year 1 is premature and expensive.</td><td>Year 2 if content volume demands it</td></tr>
+            <tr><td>Pinterest / YouTube SEO</td><td>Niche channels for dermatology acquisition in DMV market. Zero evidence of material patient acquisition from these channels at this practice scale.</td><td>Year 2 if SEO strategy expands</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="board-box">
+        <h2>Board-Level Recommendation</h2>
+        <p>Sapphire Dermatology enters this engagement with the most durable competitive asset in the DMV dermatology market: two board-certified physicians with fellowship training, dual-location coverage, and demonstrated skin of color expertise — a combination that no marketing spend can replicate for a competitor starting from zero.</p>
+        <p>The strategic gap is not clinical — it is commercial. Sapphire's current marketing infrastructure does not match the quality of its clinical offering. The practice is acquiring new patients through largely unmeasured channels, retaining them without a structured program, and leaving cosmetic revenue on the table from an existing medical patient base that has never been formally introduced to the cosmetic service line.</p>
+        <p>The 90-day plan addresses this gap in the correct sequence: establish measurement, activate acquisition, build retention. None of these three initiatives require significant capital or organizational change. They require execution discipline.</p>
+        <p><strong style="color:#fff;">The owners should expect:</strong></p>
+        <ul>
+          <li><span class="n">1.</span> 15–25 measurable new patients/month from paid acquisition by Day 60</li>
+          <li><span class="n">2.</span> 15–20% lift in returning patient visits from email activation by Day 75</li>
+          <li><span class="n">3.</span> 30+ new Google reviews building organic trust and SEO authority by Day 90</li>
+          <li><span class="n">4.</span> A fully attributed marketing system — for the first time — showing exactly which channels produce patients and at what cost</li>
+          <li><span class="n">5.</span> A repeatable playbook for a third location launch when the time comes</li>
+        </ul>
+        <p style="margin-top:16px; color:rgba(255,255,255,0.5); font-size:12px;">Prepared by eComm Cartel · Strategic Growth Division · June 2026</p>
+      </div>
+
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /main -->
+
+<script>
+  const sections = {
+    'exec-summary': { title: 'Executive Summary', sub: 'Current state assessment & strategic priorities' },
+    'roadmap': { title: '90-Day Roadmap', sub: 'Phased execution plan · Weeks 1–12' },
+    'kpi': { title: 'KPI Dashboard', sub: 'Business, website, email & paid media performance targets' },
+    'website': { title: 'Website Strategy', sub: 'Audit findings, wireframe & service page framework' },
+    'funnel': { title: 'Funnel Strategy', sub: 'Full patient journey map with leak analysis' },
+    'email': { title: 'Email Strategy', sub: 'Lifecycle automations, segmentation & campaign calendar' },
+    'paid-ads': { title: 'Paid Ads Strategy', sub: 'Google Ads & Meta campaign architecture' },
+    'social-media': { title: 'Social Media Strategy', sub: 'Approved Doctor-Led Authority Brand framework · eCC' },
+    'opportunities': { title: 'Key Opportunities', sub: 'Ranked opportunity matrix & impact/effort analysis' },
+    'risks': { title: 'Key Risks', sub: 'Risk matrix with mitigation plans' },
+    'recommendations': { title: 'Final Recommendations', sub: 'Priorities, quick wins & board-level guidance' }
+  };
+
+  function show(id) {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+    // Show target
+    document.getElementById('section-' + id).classList.add('active');
+
+    // Update active nav
+    document.querySelectorAll('.nav-item').forEach(n => {
+      if (n.getAttribute('onclick') === `show('${id}')`) n.classList.add('active');
+    });
+
+    // Update header
+    if (sections[id]) {
+      document.getElementById('header-title').textContent = sections[id].title;
+      document.getElementById('header-sub').textContent = sections[id].sub;
+    }
+
+    // Scroll to top
+    document.getElementById('main').scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
